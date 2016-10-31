@@ -6,7 +6,7 @@ from gmrb.items import GmrbItem
 
 import datetime
 
-
+#http://bjrb.bjd.com.cn/html/2016-10/31/node_1.htm
 def get_jjrb():
 	#先获得时间数组格式的日期
 	#starturls=[]
@@ -16,28 +16,28 @@ def get_jjrb():
 		#timeStamp = int(time.mktime(threeDayAgo.timetuple()))
 		#转换为其他字符串格式:
 		otherStyleTime = DayAgo.strftime("%Y-%m/%d")
-		yield 'http://paper.ce.cn/jjrb/html/'+otherStyleTime+'/node_1.htm'
+		yield 'http://bjrb.bjd.com.cn/html/'+otherStyleTime+'/node_1.htm'
 	#print(starturls)
 
 class TianjinweSpider(CrawlSpider):
-    name = "jjrb"
-    allowed_domains = ["paper.ce.cn"]
+    name = "bjrb"
+    allowed_domains = ["bjrb.bjd.com.cn"]
     start_urls = get_jjrb()#['http://paper.ce.cn/jjrb/html/2016-10/28/node_2.htm']
 
 
     rules = (
         Rule(SgmlLinkExtractor(allow=r'node_\d{1,2}.htm')),
-        Rule(SgmlLinkExtractor(allow=r'content_\d{6}.htm'), callback='parse_item'),
+        Rule(SgmlLinkExtractor(allow=r'content_\d{5}.htm'), callback='parse_item'),
     )
 
 
     def parse_item(self, response):
         i = GmrbItem()
         url=response.url
-        i['name'] = response.xpath('//td[@class="font01"]/text()').extract_first()
-        i['ban']=response.xpath('//body/table/tr[1]/td[1]/table/tr[1]/td/table[2]/tr/td[2]/text()').extract_first()
+        i['name'] = response.xpath('//h1/text()').extract_first().strip()
+        i['ban']=response.xpath('//div[@class="info"]/span[4]/text()').extract_first().split()[-1]
         #import pdb
         #pdb.set_trace()
         i['date']='-'.join(response.url.split('/')[-3:-1])
-        i['content']=u''.join(response.xpath('//founder-content/descendant::text()').extract())
+        i['content']=u''.join(response.xpath('//div[@class="text"]/descendant::text()').extract())
         return i

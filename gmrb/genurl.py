@@ -42,6 +42,18 @@ def get_tianjin():
 		otherStyleTime = DayAgo.strftime("%Y-%m/%d")
 		starturls.append('http://epaper.tianjinwe.com/tjrb/tjrb/'+otherStyleTime+'/node_1.htm')
 	print(starturls)
+    
+def get_jjrb():
+	#先获得时间数组格式的日期
+	starturls=[]
+	for i in range(0,365):
+		DayAgo = (datetime.datetime.now() - datetime.timedelta(days = i))
+		#转换为时间戳:
+		#timeStamp = int(time.mktime(threeDayAgo.timetuple()))
+		#转换为其他字符串格式:
+		otherStyleTime = DayAgo.strftime("%Y-%m/%d")
+		starturls.append('http://paper.ce.cn/jjrb/html/'+otherStyleTime+'/node_1.htm')
+	print(starturls)
 	
 if __name__=='__main__':
-	get_tianjin()
+	get_jjrb()

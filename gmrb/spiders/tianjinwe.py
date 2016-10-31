@@ -7,7 +7,7 @@ from gmrb.items import GmrbItem
 class TianjinweSpider(CrawlSpider):
     name = "tianjinwe"
     allowed_domains = ["epaper.tianjinwe.com"]
-    start_urls = ['http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/28/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/27/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/26/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/25/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/24/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/23/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/22/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/21/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/20/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/19/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/18/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/17/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/16/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/15/node_1.htm']
+    start_urls = ['http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/29/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/30/node_1.htm', 'http://epaper.tianjinwe.com/tjrb/tjrb/2016-10/31/node_1.htm', ]
 
 
     rules = (
