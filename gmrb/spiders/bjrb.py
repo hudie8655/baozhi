@@ -26,7 +26,7 @@ class TianjinweSpider(CrawlSpider):
 
 
     rules = (
-        Rule(SgmlLinkExtractor(allow=r'node_\d{1,2}.htm')),
+        Rule(SgmlLinkExtractor(allow=r'node_\d{1,3}.htm')),#北京日报编码不规律
         Rule(SgmlLinkExtractor(allow=r'content_\d{5}.htm'), callback='parse_item'),
     )
 
